@@ -1,6 +1,5 @@
 import { FETCH_DUST } from '../actions';
 import { SELECT_LOCATION } from '../actions';
-import axios from 'axios';
 
 const url = 'https://api.waqi.info/feed/seoul/?token=70d8efad38844b4d5582432b51abd6e1bf419a20';
 
@@ -13,15 +12,6 @@ export default function(state = {
 }, action) {
   console.log(action.type, action.payload);
   switch (action.type) {
-  // case `${FETCH_DUST}_PENDING`:
-  //   return {
-  //     loading: true,
-  //     error: '',
-  //     cities:{
-  //       ...state.cities
-  //       },
-  //       id: []
-  //   };
   case `${FETCH_DUST}_FULFILLED`:
     if (action.payload.data.status === 'ok') {
       return {
@@ -52,15 +42,6 @@ export default function(state = {
       },
       id: []
     };
-  // case `${SELECT_LOCATION}_PENDING`:
-  //   return {
-  //     loading: true,
-  //     error: '',
-  //     cities: {
-  //       ...state.cities
-  //     },
-  //     id: []
-  //   };
   case `${SELECT_LOCATION}_FULFILLED`:
     if (action.payload.data.status === 'ok') {
       return {
